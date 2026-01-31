@@ -17,3 +17,7 @@ git branch - check how many braches
 git checkout -b newBranch - create new branch and switch to branch
 
 git status - show status of updated files
+
+git switch main - change branch
+
+git pull origin <branch> - fetch codes from cloud to local
