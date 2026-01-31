@@ -1,0 +1,13 @@
+git init
+
+git add <filename>/ ,
+
+git commit -M "message"
+
+git push origin main
+
+git remote add origin <link>
+
+git remote remove origin 
+
+git clone link
