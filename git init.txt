@@ -1,13 +1,19 @@
-git init
+git init - initialize
 
-git add <filename>/ ,
+git add <filename> / . - tracking
 
-git commit -M "message"
+git commit -M "message"  - saving 
 
-git push origin main
+git push origin main - add to cloud
 
-git remote add origin <link>
+git remote add origin <link> - repository
 
-git remote remove origin 
+git remote remove origin  - removes repository  
 
-git clone link
+git clone link - copy flies from cloud
+
+git branch - check how many braches
+
+git checkout -b newBranch - create new branch and switch to branch
+
+git status - show status of updated files
