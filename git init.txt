@@ -21,3 +21,5 @@ git status - show status of updated files
 git switch main - change branch
 
 git pull origin <branch> - fetch codes from cloud to local
+
+//maachuda chbba
