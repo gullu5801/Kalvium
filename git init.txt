@@ -1,25 +1,29 @@
-git init - initialize
+git init = initialize
 
-git add <filename> / . - tracking
+git add <filename> = tracking single file
 
-git commit -M "message"  - saving 
+git add . = track all changes in project
 
-git push origin main - add to cloud
+git commit -M <"message">  = saving 
 
-git remote add origin <link> - repository
+git push origin <main> = add to cloud
 
-git remote remove origin  - removes repository  
+git remote -v = check the repository
 
-git clone link - copy flies from cloud
+git remote add origin <link> = repository
 
-git branch - check how many braches
+git remote remove origin = removes repository  
 
-git checkout -b newBranch - create new branch and switch to branch
+git clone <link> = copy flies from cloud
 
-git status - show status of updated files
+git branch = check how many braches
 
-git switch main - change branch
+git checkout -b <newBranch> = create new branch and switch to branch
 
-git pull origin <branch> - fetch codes from cloud to local
+git status = show status of updated files
+
+git switch <main> = change branch
+
+git pull origin <branch> = fetch codes from cloud to local
 
 //this looks good for me
