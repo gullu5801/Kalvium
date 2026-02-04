@@ -36,7 +36,7 @@ const RecipeApp = (() => {
         },
         {
             id: 7, title: "Pad Thai", time: 30, difficulty: "medium", description: "Thai rice noodles.", category: "noodles",
-            ingredients: ["Noodles", "Shrimp", "Peanuts", "Tamarind", "Egg"], steps: ["Soak noodles", {text: "Sauce", substeps: ["Mix tamarind", "Fish sauce"]}, "Fry", "Toss"]
+            ingredients: ["Noodles", "Shrimp", "Peanuts", "Tamarind", "Egg"], steps: ["Soak noodles", { text: "Sauce", substeps: ["Mix tamarind", "Fish sauce"] }, "Fry", "Toss"]
         },
         {
             id: 8, title: "Margherita Pizza", time: 60, difficulty: "medium", description: "Classic Italian pizza.", category: "pizza",
@@ -47,7 +47,7 @@ const RecipeApp = (() => {
     // [PART 2 & 4] STATE MANAGEMENT
     let currentFilter = 'all';
     let currentSort = 'none';
-    
+
     // [PART 4 NEW] Search & Favorites State
     let searchQuery = '';
     // Load favorites from LocalStorage OR default to empty array
@@ -88,7 +88,7 @@ const RecipeApp = (() => {
     const createRecipeCard = (recipe) => {
         // [PART 4 NEW] Check if recipe is favorited
         const isFavorite = favorites.includes(recipe.id);
-        const heartClass = isFavorite ? 'fas fa-heart active' : 'far fa-heart'; 
+        const heartClass = isFavorite ? 'fas fa-heart active' : 'far fa-heart';
 
         return `
             <div class="recipe-card" data-id="${recipe.id}">
@@ -119,7 +119,7 @@ const RecipeApp = (() => {
         `;
     };
 
-    
+
     // LOGIC: FILTER / SORT / SEARCH
 
     // [PART 4 NEW] Search Logic
@@ -136,7 +136,7 @@ const RecipeApp = (() => {
 
     // [PART 2 & 4] Filter Logic
     const applyFilter = (recipes, filterType) => {
-        switch(filterType) {
+        switch (filterType) {
             case 'favorites': return recipes.filter(r => favorites.includes(r.id)); // [PART 4 NEW]
             case 'easy': return recipes.filter(r => r.difficulty === 'easy');
             case 'medium': return recipes.filter(r => r.difficulty === 'medium');
@@ -149,7 +149,7 @@ const RecipeApp = (() => {
     // [PART 2] Sort Logic
     const applySort = (recipes, sortType) => {
         const sorted = [...recipes];
-        switch(sortType) {
+        switch (sortType) {
             case 'name': return sorted.sort((a, b) => a.title.localeCompare(b.title));
             case 'time': return sorted.sort((a, b) => a.time - b.time);
             default: return sorted;
@@ -165,21 +165,21 @@ const RecipeApp = (() => {
     const updateDisplay = () => {
         // 1. Apply Search
         let result = applySearch(recipes, searchQuery);
-        
+
         // 2. Apply Filter
         result = applyFilter(result, currentFilter);
-        
+
         // 3. Apply Sort
         result = applySort(result, currentSort);
-        
+
         // 4. Render
         recipeContainer.innerHTML = result.map(createRecipeCard).join('');
-        
+
         // [PART 4 NEW] Update Counter & Clear Button
         updateCounter(result.length);
         if (searchQuery) clearSearchBtn.classList.remove('hidden');
         else clearSearchBtn.classList.add('hidden');
-        
+
         updateActiveButtons();
     };
 
