@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Jasmine Spec Runner v2.8.0</title>
+
+  <!-- <link rel="shortcut icon" type="image/png" href="jasmine/jasmine-2.8.0/face.png"> -->
+  <link rel="stylesheet" href="jasmine/jasmine-2.8.0/jasmine.css">
+  <link rel="stylesheet" href="main.css">
+
+  <script src="jasmine/jasmine-2.8.0/jasmine.js"></script>
+  <script src="jasmine/jasmine-2.8.0/jasmine-html.js"></script>
+  <script src="jasmine/jasmine-2.8.0/boot.js"></script>
+
+  <!-- include source files here... -->
+
+  <script src="src/app.js"></script>
+
+  <!-- include spec files here... -->
+  <script src="tests/FunctionsTest.js"></script>
+
+</head>
+
+<body>
+  <nav>
+    <img src="https://kq-storage.s3.ap-south-1.amazonaws.com/fewd_v2/logo.png" alt="logo" />
+    <ul>
+        <li> <a href="">My Blogs</a></li>
+        <li> <a href="">Login</a></li>
+        <li> <a href="">Sign Up</a></li> 
+    </ul>
+</nav>
+<div class="body-div1">
+    <div>Your Blog Posts</div>
+    <a ><button class="button" id="addBlog" onclick="helperAddPost()"><i class="fa-plus-circle"></i>Add New Post</button></a>  
+</div>
+<div class="body-div2">
+    <div class="article-card" id="flashcard">
+        <!-- <img src="./assets/java card image.svg" alt=""> -->
+            <div class="card-text" id="card-text">
+                 <!-- <h1 id="blog-title">sda</h1> 
+                <p id="blog-description">da</p>  -->
+                 <!-- <p>Posted on</p> -->
+            <!-- </div>
+              <div class="card-buttons">
+                <a><button type="button" id="edit">EDIT</button></a> <span>|</span><a ><button id="delete">DELETE</button></a>
+            </div>  -->
+    </div>
+</div>
+<!-- HTML: Ensure popupContact has the initial display style -->
+<div id="popupContact" style="display: none;"></div>
+
+    <button id="close" class="button" onclick="closeHandler()"> <img id="close" src="https://kq-storage.s3.ap-south-1.amazonaws.com/fewd_v2/pngtree-icon-close-button-png-image_1357822.jpg" width="50px"></button>
+    <img id="rect" src="assets/rect.svg">
+    <h2>Your Post</h2>
+    <div id="card" >
+        <input type="hidden" name="blogId" value="" /> 
+        <input id="title" name="title" value="" placeholder="Title" type="text"/>
+        <textarea id="detail" name="message" placeholder="Description" value=""></textarea>
+        <button id="post" type="submit" onclick="helperPost()" >POST</button>
+    </div>
+</div>
+</div>
+</body>
+<script>
+function closeHandler(){
+const del = document.getElementById('close');
+location.reload();
+}
+</script>
+
+</body>
+
+</html>
