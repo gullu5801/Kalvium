@@ -87,7 +87,7 @@ function displayUsers() {
   users.forEach((user) => {
     html += `
       <p>
-        Name : ${user.name}<br>
+        Name : ${user.name}<br>  
         Email : ${user.email}<br>
         Phone : ${user.phone}<br>
         City : ${user.address.city}<br>
