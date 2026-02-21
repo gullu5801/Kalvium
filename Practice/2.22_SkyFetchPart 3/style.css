@@ -1,0 +1,115 @@
+/* --- PART 1: GLOBAL STYLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 550px;
+    width: 100%;
+}
+
+h1 { color: #333; margin-bottom: 5px; }
+.tagline { color: #666; margin-bottom: 25px; }
+
+/* --- PART 2: SEARCH UI --- */
+.search-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+#city-input {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 2px solid #ddd;
+    outline: none;
+    font-size: 1rem;
+}
+
+#city-input:focus { border-color: #667eea; }
+
+#search-btn {
+    padding: 12px 25px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#search-btn:hover { background: #764ba2; }
+
+/* --- PART 2 & 3: LOADING & ERRORS --- */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.error-message {
+    color: #d32f2f;
+    background: #ffcdd2;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* --- PART 3: FORECAST GRID --- */
+.divider { margin: 25px 0; border: 0; border-top: 1px solid #eee; }
+.forecast-title { margin-bottom: 15px; color: #444; font-size: 1.2rem; }
+
+
+
+.forecast-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.forecast-card {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    transition: 0.3s;
+}
+
+.forecast-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.f-day { font-weight: bold; font-size: 0.85rem; color: #555; }
+.f-temp { color: #667eea; font-weight: bold; margin: 5px 0; }
+.f-desc { font-size: 0.7rem; color: #888; text-transform: capitalize; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 500px) {
+    .forecast-grid { grid-template-columns: repeat(3, 1fr); }
+}
