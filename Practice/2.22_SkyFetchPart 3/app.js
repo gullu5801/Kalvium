@@ -2,9 +2,9 @@
  * PART 3: WeatherApp Constructor
  * Organizes all logic into a single object instance.
  */
-function WeatherApp() {
+function WeatherApp(apiKey) {
     // PART 1: API Configuration
-    this.apiKey = "c1ad54a4fb4cd42dd6091e0afedae2df"; 
+    this.apiKey = apiKey; 
     this.currentWeatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
     // PART 3: New Forecast URL
     this.forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast';
@@ -156,4 +156,4 @@ WeatherApp.prototype.displayForecast = function(data) {
 };
 
 // PART 3: Instantiate the app
-const app = new WeatherApp();
+const app = new WeatherApp("c1ad54a4fb4cd42dd6091e0afedae2df");

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- <link rel="shortcut icon" type="image/png" href="jasmine/jasmine-2.8.0/face.png"> -->
+  <link rel="stylesheet" href="jasmine/jasmine-2.8.0/jasmine.css">
+  <link rel="stylesheet" href="main.css">
+
+  <script src="jasmine/jasmine-2.8.0/jasmine.js"></script>
+  <script src="jasmine/jasmine-2.8.0/jasmine-html.js"></script>
+  <script src="jasmine/jasmine-2.8.0/boot.js"></script>
+  <!-- include spec files here... -->
+  <script src="tests/FunctionsTest.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Weather Forecast</h1>
+    <input type="text" id="cityInput" placeholder="Enter city name">
+    <div class="buttons">
+        <button onclick="handleCallbackRequest()">Use Callback</button>
+        <button onclick="handlePromiseRequest()">Use Promise</button>
+        <button onclick="handleAsyncRequest()">Use Async/Await</button>
+        <button onclick="handleFetchRequest()">Use Fetch</button>
+        <button onclick="handleAxiosRequest()">Use Axios</button>
+        <button onclick="handleRecursiveRequest()">Use Recursion</button>
+    </div>
+    <div id="output"></div>
+</div>
+<script src="src/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</body>
+</html>
