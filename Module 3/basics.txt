@@ -1,0 +1,20 @@
+1> to craete a react project typle 
+
+npx create-react-project <fileName> = creates as react project
+
+2> to craeate a vite project typle
+
+npm init vite@latest <fileName> --template react = creates a react project
+
+3> try npm vite@latest = manual configurations
+
+4> 1st step 
+
+4.1> npm install
+
+4.2> npm run dev = to run a command
+
+press Ctrl/Command + C to stop the server from exicuting
+
+navigate to the folder - cd.<initialTab>
+
