@@ -18,3 +18,10 @@ press Ctrl/Command + C to stop the server from exicuting
 
 navigate to the folder - cd.<initialTab>
 
+npm init -y = creates package.json
+
+npm run loadash = creates package.lock.json and add node nodules
+
+npm install --save --dev webpack webpack-cli = installs webpack
+
+npm run build 
