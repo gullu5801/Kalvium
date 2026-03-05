@@ -11,6 +11,7 @@ function Display() {
     )
 }
 
+<>
 //2
 <img src="img.png" />
 
@@ -18,10 +19,10 @@ function Display() {
 <div className="box"></div>
 
 //4
-{if(age>18){return "Yes";}}
+{/* {if(age>18){return "Yes";}} */}
 {age>18?"Yes":"no"}
 
-
+</>
 //5
 return
 (
@@ -30,7 +31,7 @@ return
 
 //6
 function Card() {}
-
+<>
 //7
 const name = "abc";
 <h1>{name}</h1>
@@ -41,6 +42,7 @@ const name = "abc";
 //9
 <button onClick={sayHello}></button>
 
+</>
 //10
 const name = "rahul"
 return {name};
