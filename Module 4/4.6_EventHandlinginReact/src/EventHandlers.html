@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventhandelers
+    </title>
+</head>
+
+<body style="text-align: center;">
+    <h1>Event Handlers</h1>
+
+    <button type="button" onclick="Alert()">Alert</button>
+
+    <h2>Registration Form</h2>
+
+    <form id="myForm">
+        <input type="text" name="name" placeholder="Enter Name"><br><br>
+        <input type="email" name="email" placeholder="Enter Email"><br><br>
+        <input type="password" name="password" placeholder="Enter Password"><br><br>
+
+        <button type="submit">Submit</button>
+        <button type="button" id="resetBtn">Reset</button>
+    </form>
+
+    <h3>Output:</h3>
+    <p id="outName"></p>
+    <p id="outEmail"></p>
+    <p id="outPassword"></p>
+
+    <script>
+        function Alert() {
+            alert("Button clicked!");
+        }
+
+        const form = document.getElementById("myForm");
+        const resetBtn = document.getElementById("resetBtn");
+
+        const outName = document.getElementById("outName");
+        const outEmail = document.getElementById("outEmail");
+        const outPassword = document.getElementById("outPassword");
+
+        const formData = {
+            name: "",
+            email: "",
+            password: ""
+        };
+
+        form.addEventListener("input", function (event) {
+            const { name, value } = event.target;
+            formData[name] = value;
+        });
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            console.log(formData);
+
+            outName.innerText = "Name: " + formData.name;
+            outEmail.innerText = "Email: " + formData.email;
+            outPassword.innerText = "Password: " + formData.password;
+        });
+
+        resetBtn.addEventListener("click", function () {
+            form.reset(); // clear inputs
+
+            outName.innerText = "";
+            outEmail.innerText = "";
+            outPassword.innerText = "";
+        });
+    </script>
+</body>
+
+</html>

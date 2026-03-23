@@ -1,0 +1,34 @@
+{
+  "name": "vite-react-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx",
+    "preview": "vite preview",
+    "test:json": "vitest --reporter=json",
+    "test:serve": "vitest",
+    "test:ui": "vitest --ui"
+  },
+  "dependencies": {
+    "@babel/preset-react": "^7.24.1",
+    "@testing-library/jasmine-dom": "^1.3.3",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^15.0.5",
+    "@vitest/ui": "^2.1.8",
+    "jsdom": "^25.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vitest": "^2.1.8"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.24.5",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "babel-preset-react-app": "^10.0.1",
+    "vite": "^5.2.10"
+  }
+}
