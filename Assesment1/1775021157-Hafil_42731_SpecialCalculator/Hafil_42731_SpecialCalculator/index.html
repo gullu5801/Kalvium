@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AXIOM — Special Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div id="app">
+
+    <!-- ══════════════════════════════════════
+         HEADER
+    ══════════════════════════════════════════ -->
+    <header class="header">
+      <span class="header-badge">Smart Utility Manager · Assignment 1</span>
+      <h1 class="header-title">AXIOM</h1>
+      <p class="header-sub">Special Calculator &mdash; Advanced Computation Engine</p>
+      <div class="header-hint">Keyboard supported &nbsp;|&nbsp; Enter = &nbsp;|&nbsp; Esc = C &nbsp;|&nbsp; ← =
+        backspace</div>
+    </header>
+
+    <main class="workspace">
+
+      <!-- ══════════════════════════════════════
+           CALCULATOR PANEL
+      ══════════════════════════════════════════ -->
+      <section class="calc-panel" aria-label="Calculator">
+
+        <!-- Display -->
+        <div class="display" role="region" aria-label="Calculator display">
+          <div class="display-expr" id="display-expr" aria-live="polite">0</div>
+          <div class="display-result" id="display-result"></div>
+        </div>
+
+        <!-- Special Function Row -->
+        <div class="special-row" id="special-row" role="group" aria-label="Special functions">
+          <button class="btn btn-spec" data-action="square" title="Square: x²">x²</button>
+          <button class="btn btn-spec" data-action="sqrt" title="Square Root: √x">√x</button>
+          <button class="btn btn-spec" data-action="factorial" title="Factorial: n!">n!</button>
+          <button class="btn btn-spec" data-action="fibonacci" title="Fibonacci: Fib(n)">Fib</button>
+          <button class="btn btn-spec" data-action="power"
+            title="Power: x ^ y (type base, press xʸ, type exponent, press =)">x<sup>y</sup></button>
+        </div>
+
+        <!-- Main Button Grid (4 columns) -->
+        <div class="button-grid" id="button-grid" role="group" aria-label="Calculator buttons">
+
+          <!-- Row 1: Utility -->
+          <button class="btn btn-clear col-span-2" data-action="clear">C</button>
+          <button class="btn btn-util" data-action="backspace">&#9003;</button>
+          <button class="btn btn-op" data-value="÷">÷</button>
+
+          <!-- Row 2 -->
+          <button class="btn btn-num" data-value="7">7</button>
+          <button class="btn btn-num" data-value="8">8</button>
+          <button class="btn btn-num" data-value="9">9</button>
+          <button class="btn btn-op" data-value="×">×</button>
+
+          <!-- Row 3 -->
+          <button class="btn btn-num" data-value="4">4</button>
+          <button class="btn btn-num" data-value="5">5</button>
+          <button class="btn btn-num" data-value="6">6</button>
+          <button class="btn btn-op" data-value="−">−</button>
+
+          <!-- Row 4 -->
+          <button class="btn btn-num" data-value="1">1</button>
+          <button class="btn btn-num" data-value="2">2</button>
+          <button class="btn btn-num" data-value="3">3</button>
+          <button class="btn btn-op" data-value="+">+</button>
+
+          <!-- Row 5 -->
+          <button class="btn btn-num col-span-2" data-value="0">0</button>
+          <button class="btn btn-num" data-value=".">.</button>
+          <button class="btn btn-equals" data-action="equals">=</button>
+
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════
+           HISTORY PANEL
+      ══════════════════════════════════════════ -->
+      <aside class="history-panel" aria-label="Calculation history">
+
+        <h2 class="panel-title">
+          <span class="panel-tag">LOG</span> History
+        </h2>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-val" id="stat-count">0</span>
+            <span class="stat-label">Total</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-val stat-sm" id="stat-max">—</span>
+            <span class="stat-label">Largest</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-val stat-sm" id="stat-avg">—</span>
+            <span class="stat-label">Average</span>
+          </div>
+        </div>
+
+        <!-- Filter -->
+        <div class="filter-row" id="filter-row" role="group" aria-label="Filter history">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="basic">Basic</button>
+          <button class="filter-btn" data-filter="special">Special</button>
+        </div>
+
+        <!-- History list -->
+        <div class="history-list" id="history-list" aria-live="polite">
+          <p class="empty-msg">Results will appear here as you calculate.</p>
+        </div>
+
+        <button class="btn-clear-hist" id="clear-history">Clear History</button>
+
+      </aside>
+
+    </main>
+
+  </div><!-- #app -->
+
+  <script src="script.js"></script>
+</body>
+
+</html>

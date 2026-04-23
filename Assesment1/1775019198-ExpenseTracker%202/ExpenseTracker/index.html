@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>💰 Expense Tracker</h1>
+
+  <input type="text" id="name" placeholder="Expense Name">
+  <input type="number" id="amount" placeholder="Amount">
+
+  <select id="category">
+    <option>Food</option>
+    <option>Fuel</option>
+    <option>Shopping</option>
+    <option>Other</option>
+  </select>
+
+  <br>
+
+  <button onclick="addExpense()">➕ Add</button>
+  <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
+  <br><br>
+
+  <!-- Filter -->
+  <select onchange="filterCategory(this.value)">
+    <option value="All">All</option>
+    <option value="Food">Food</option>
+    <option value="Fuel">Fuel</option>
+    <option value="Shopping">Shopping</option>
+    <option value="Other">Other</option>
+  </select>
+
+  <ul id="list"></ul>
+
+  <h2 id="total">Total: ₹0</h2>
+
+  <h3 id="stats"></h3>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

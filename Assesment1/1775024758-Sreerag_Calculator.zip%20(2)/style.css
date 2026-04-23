@@ -1,0 +1,90 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #1e1e2f;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Calculator box */
+.calculator {
+  background: #2c2c3e;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.calculator h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* Display */
+#display {
+  background: black;
+  color: #00ffcc;
+  font-size: 2rem;
+  padding: 15px;
+  text-align: right;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow-x: auto;
+}
+
+/* Buttons grid */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* Buttons */
+.btn {
+  padding: 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #3e3e55;
+  color: white;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #5a5a7a;
+}
+
+/* Special buttons */
+.operator {
+  background: #ff9500;
+}
+
+.operator:hover {
+  background: #e08900;
+}
+
+.equal {
+  background: #00c853;
+}
+
+.equal:hover {
+  background: #00a844;
+}
+
+.clear {
+  background: #ff3b30;
+}
+
+.delete {
+  background: #607d8b;
+}
+
+/* Zero button spans 2 columns */
+.zero {
+  grid-column: span 2;
+}

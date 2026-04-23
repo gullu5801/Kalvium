@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Grade Manager</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app-container">
+      <header class="app-header">
+        <h1>Smart Utility Manager: Student Grade Manager</h1>
+        <p>Add students and grades, then view smart grade insights instantly.</p>
+      </header>
+
+      <section class="card form-card" aria-labelledby="form-title">
+        <h2 id="form-title">Add Student</h2>
+        <form id="student-form" novalidate>
+          <div class="form-grid">
+            <label for="student-name">Student Name</label>
+            <input
+              type="text"
+              id="student-name"
+              name="studentName"
+              placeholder="e.g., Arjun"
+              required
+            />
+
+            <label for="student-grades">Grades (comma separated)</label>
+            <input
+              type="text"
+              id="student-grades"
+              name="studentGrades"
+              placeholder="e.g., 85, 92, 78"
+              required
+            />
+          </div>
+          <button type="submit" class="btn">Add Student</button>
+          <p id="form-message" class="form-message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="card summary-card" aria-labelledby="summary-title">
+        <h2 id="summary-title">Class Summary</h2>
+        <div id="summary-content" class="summary-grid">
+          <p><strong>Total Students:</strong> <span id="total-students">0</span></p>
+          <p><strong>Average Grade:</strong> <span id="average-grade">0</span></p>
+          <p><strong>Highest Grade:</strong> <span id="highest-grade">0</span></p>
+          <p><strong>Lowest Grade:</strong> <span id="lowest-grade">0</span></p>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="students-title">
+        <h2 id="students-title">Students</h2>
+        <div id="students-list" class="students-list">
+          <p class="empty-state">No students added yet.</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

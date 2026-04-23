@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Smart Utility Manager - Expense Tracker</h1>
+
+    <div class="container">
+      <input type="text" id="expenseName" placeholder="Expense Name" />
+      <input type="number" id="expenseAmount" placeholder="Amount" />
+      <button onclick="addExpense()">Add Expense</button>
+      <button onclick="showTotal()">Calculate Total</button>
+    </div>
+
+    <ul id="expenseList"></ul>
+    <h2 id="totalDisplay"></h2>
+
+    <script src="script.js"></script>
+  </body>
+</html>

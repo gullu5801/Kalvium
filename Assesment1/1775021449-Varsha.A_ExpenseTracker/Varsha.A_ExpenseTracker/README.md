@@ -1,0 +1,65 @@
+# Expense Tracker
+
+## About
+
+This is a simple expense tracker project made using HTML, CSS and JavaScript.
+In this app, we can add expenses with description and amount, and it will show the total.
+
+
+## Features
+
+* Add expense
+* Show list of expenses
+* Calculate total automatically
+* Delete any item
+
+
+## Technologies Used
+
+* HTML
+* CSS
+* JavaScript
+
+
+## Concepts Used
+
+* let, const
+* template literals
+* destructuring
+* spread operator
+* array methods (forEach, reduce)
+* functions
+* recursion
+* class and object (OOP)
+* prototype
+* IIFE
+
+
+## How it works
+
+User enters description and amount and clicks add button.
+The data is stored in an array and displayed on screen.
+Total is calculated using reduce() function and updated every time.
+
+
+## Recursion
+
+I used a recursion function (sumRec) to calculate total for learning purpose.
+
+
+## OOP
+
+I created a class Item to store each expense.
+
+## Prototype
+
+Used prototype to add a function to the class.
+
+
+## Conclusion
+
+This project helped me understand basic JavaScript concepts and how to build a simple working web app.
+
+![alt text](<Screenshot (103).png>)
+![alt text](<Screenshot 2026-04-01 104333-1.png>)
+![alt text](<Screenshot 2026-04-01 104404.png>)

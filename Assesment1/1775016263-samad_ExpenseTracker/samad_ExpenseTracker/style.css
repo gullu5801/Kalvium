@@ -1,0 +1,927 @@
+/* ============================================
+   MODERN SAAS DASHBOARD - EXPENSE TRACKER
+   ============================================ */
+
+/* Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* App Container - Full Height Layout */
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Section */
+.header {
+    flex-shrink: 0;
+    padding: 24px 20px;
+    border-bottom: 1px solid #e5e5e5;
+    background: #ffffff;
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: left;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.title {
+    font-size: 1.875rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: #666666;
+    font-weight: 400;
+}
+
+/* Dashboard - Two Column Layout */
+.dashboard {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 24px;
+    overflow: hidden;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 0;
+    gap: 16px;
+}
+
+.column-left {
+    grid-column: 1;
+}
+
+.column-right {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    gap: 16px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 8px;
+}
+
+.column-right::-webkit-scrollbar {
+    width: 6px;
+}
+
+.column-right::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.column-right::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: 3px;
+}
+
+.column-right::-webkit-scrollbar-thumb:hover {
+    background: #999999;
+}
+
+/* Card Base */
+.card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 24px;
+    border: 1px solid #e5e5e5;
+    animation: fadeInUp 0.6s ease-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form Card */
+.form-card {
+    flex-shrink: 0;
+}
+
+/* Summary Card */
+.summary-card {
+    flex-shrink: 0;
+    background: #f9f9f9;
+    border: 1px solid #e5e5e5;
+    padding: 20px 24px;
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.summary-label {
+    font-size: 0.75rem;
+    color: #666666;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.summary-icon {
+    font-size: 1.25rem;
+}
+
+.summary-amount {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #6366f1;
+    margin-bottom: 4px;
+    letter-spacing: -0.5px;
+}
+
+.summary-meta {
+    font-size: 0.75rem;
+    color: #666666;
+    font-weight: 400;
+}
+
+/* Filter Card */
+.filter-card {
+    flex-shrink: 0;
+    background: #f9f9f9;
+    border: 1px solid #e5e5e5;
+    padding: 16px 24px;
+}
+
+.card-title-small {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+/* Category Stats - Single Pie Chart */
+.category-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.pie-container {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.main-pie-chart {
+    flex-shrink: 0;
+    width: 160px;
+    height: 160px;
+}
+
+.pie-slice {
+    transition: opacity 0.25s ease, filter 0.25s ease;
+    cursor: pointer;
+}
+
+.pie-slice:hover {
+    opacity: 0.85;
+    filter: brightness(1.1);
+}
+
+.pie-legend {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 180px;
+}
+
+.pie-legend::-webkit-scrollbar {
+    width: 4px;
+}
+
+.pie-legend::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.pie-legend::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: 2px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.legend-item:hover {
+    background: #eeeeee;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.legend-label {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.legend-category {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #333333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.legend-value {
+    font-size: 0.75rem;
+    color: #666666;
+    font-weight: 400;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+}
+
+.filter-select:hover {
+    border-color: #bbbbbb;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #6366f1;
+}
+
+/* Form Card */
+.form-card {
+    flex-shrink: 0;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+    letter-spacing: -0.3px;
+}
+
+/* Expenses List - Scrollable Container */
+.expenses-list {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-right: 8px;
+}
+
+.expenses-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.expenses-list::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+}
+
+.expenses-list::-webkit-scrollbar-thumb {
+    background: #cccccc;
+    border-radius: 10px;
+}
+
+.expenses-list::-webkit-scrollbar-thumb:hover {
+    background: #999999;
+}
+
+/* Form */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #333333;
+    text-transform: capitalize;
+    letter-spacing: 0.3px;
+}
+
+.form-input {
+    padding: 11px 14px;
+    border: 1px solid #d5d5d5;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    color: #333333;
+    background: #ffffff;
+    transition: all 0.25s ease;
+    outline: none;
+}
+
+.form-input::placeholder {
+    color: #999999;
+    font-weight: 400;
+}
+
+.form-input:hover {
+    border-color: #bbbbbb;
+    background: #ffffff;
+}
+
+.form-input:focus {
+    border-color: #6366f1;
+    background: #ffffff;
+}
+
+.form-select {
+    cursor: pointer;
+    appearance: none;
+    padding-right: 36px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-color: #ffffff;
+}
+
+/* Buttons */
+.btn {
+    padding: 11px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-align: center;
+    letter-spacing: 0px;
+    outline: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-primary {
+    background-color: #6366f1;
+    color: white;
+    width: 100%;
+    margin-top: 6px;
+}
+
+.btn-primary:hover {
+    background-color: #4f46e5;
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-delete {
+    padding: 6px 12px;
+    background-color: #ffe5e5;
+    color: #cc0000;
+    font-size: 0.8rem;
+    border: 1px solid #ffcccc;
+    transition: all 0.25s ease;
+    flex-shrink: 0;
+}
+
+.btn-delete:hover {
+    background-color: #ffcccc;
+    color: #990000;
+}
+
+/* Expenses List Card */
+.list-card {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid #e5e5e5;
+    min-height: 400px;
+}
+
+.expense-item {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.expense-item:hover {
+    background-color: #f5f5f5;
+    border-color: #d5d5d5;
+}
+
+.expense-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.expense-category {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    background-color: #eef2ff;
+    color: #4338ca;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    gap: 4px;
+}
+
+.expense-description {
+    font-size: 0.95rem;
+    color: #333333;
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.expense-date {
+    font-size: 0.8rem;
+    color: #666666;
+}
+
+.expense-amount {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #6366f1;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.expense-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666666;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.empty-icon {
+    font-size: 2.5rem;
+    opacity: 0.6;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet & Smaller Desktops */
+@media (max-width: 1024px) {
+    .dashboard {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        padding: 18px;
+    }
+
+    .column {
+        gap: 12px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .summary-card {
+        padding: 18px 20px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.1rem;
+        margin-bottom: 14px;
+    }
+
+    .summary-amount {
+        font-size: 1.75rem;
+    }
+
+    .expense-item {
+        padding: 12px;
+    }
+}
+
+/* Mobile Layout - Single Column */
+@media (max-width: 768px) {
+    .app {
+        height: auto;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 16px;
+        overflow: auto;
+        min-height: auto;
+        height: auto;
+    }
+
+    .column {
+        gap: 16px;
+    }
+
+    .column-right {
+        grid-column: 1;
+        overflow-y: visible;
+        overflow-x: visible;
+        padding-right: 0;
+        gap: 16px;
+    }
+
+    .column-right::-webkit-scrollbar {
+        display: none;
+    }
+
+    .list-card {
+        border-left: none;
+        border-top: 1px solid #e5e5e5;
+        min-height: auto;
+    }
+
+    .header {
+        padding: 16px;
+    }
+
+    .title {
+        font-size: 1.3rem;
+        margin-bottom: 4px;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .summary-card {
+        padding: 24px 20px;
+    }
+
+    .card-title {
+        font-size: 1rem;
+        margin-bottom: 14px;
+    }
+
+    .summary-amount {
+        font-size: 1.75rem;
+    }
+
+    .form {
+        gap: 16px;
+    }
+
+    .form-input {
+        padding: 10px 12px;
+        font-size: 16px;
+    }
+
+    .category-stats {
+        flex-direction: column;
+    }
+
+    .pie-container {
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
+    }
+
+    .main-pie-chart {
+        width: 140px;
+        height: 140px;
+    }
+
+    .pie-legend {
+        width: 100%;
+        max-height: none;
+    }
+
+    .legend-item {
+        padding: 6px;
+    }
+
+    .legend-category {
+        font-size: 0.8rem;
+    }
+
+    .legend-value {
+        font-size: 0.7rem;
+    }
+
+    .expense-item {
+        padding: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .expense-amount {
+        align-self: flex-start;
+        font-size: 1.1rem;
+    }
+
+    .expense-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .dashboard {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .header {
+        padding: 12px;
+    }
+
+    .title {
+        font-size: 1.1rem;
+    }
+
+    .subtitle {
+        font-size: 0.8rem;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .summary-card {
+        padding: 20px 16px;
+    }
+
+    .summary-amount {
+        font-size: 1.5rem;
+    }
+
+    .summary-label {
+        font-size: 0.75rem;
+    }
+
+    .card-title {
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+    }
+
+    .form-label {
+        font-size: 0.8rem;
+    }
+
+    .form-input {
+        padding: 9px 11px;
+        font-size: 16px;
+    }
+
+    .form-select {
+        padding-right: 32px;
+        background-position: right 10px center;
+    }
+
+    .btn {
+        padding: 9px 12px;
+        font-size: 0.85rem;
+    }
+
+    .btn-primary {
+        margin-top: 4px;
+    }
+
+    .category-stats {
+        flex-direction: column;
+    }
+
+    .pie-container {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .main-pie-chart {
+        width: 130px;
+        height: 130px;
+    }
+
+    .pie-legend {
+        width: 100%;
+        max-height: 150px;
+    }
+
+    .legend-item {
+        padding: 5px;
+        font-size: 0.8rem;
+    }
+
+    .legend-color {
+        width: 14px;
+        height: 14px;
+    }
+
+    .legend-category {
+        font-size: 0.75rem;
+    }
+
+    .legend-value {
+        font-size: 0.65rem;
+    }
+
+    .stat-item-pie {
+        padding: 8px;
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .pie-chart-wrapper {
+        width: 70px;
+        height: 70px;
+        flex-shrink: 0;
+    }
+
+    .pie-background {
+        stroke-width: 6;
+    }
+
+    .pie-fill {
+        stroke-width: 6;
+    }
+
+    .pie-percentage {
+        font-size: 0.8rem;
+    }
+
+    .pie-info {
+        flex: 1;
+        text-align: left;
+    }
+
+    .pie-category {
+        justify-content: flex-start;
+    }
+
+    .pie-icon {
+        font-size: 0.9rem;
+    }
+
+    .pie-name {
+        font-size: 0.65rem;
+    }
+
+    .pie-amount {
+        font-size: 0.7rem;
+    }
+
+    .expense-item {
+        padding: 10px;
+    }
+
+    .expense-description {
+        font-size: 0.9rem;
+    }
+
+    .expense-amount {
+        font-size: 1rem;
+    }
+
+    .btn-delete {
+        padding: 5px 10px;
+        font-size: 0.7rem;
+    }
+
+    .empty-icon {
+        font-size: 2rem;
+    }
+
+    .expenses-list {
+        gap: 10px;
+    }
+}

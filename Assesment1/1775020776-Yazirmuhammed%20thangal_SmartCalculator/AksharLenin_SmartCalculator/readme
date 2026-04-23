@@ -1,0 +1,69 @@
+# Smart Calculator
+
+## Project Overview
+
+Smart Calculator is a simple web application built using HTML, CSS, and JavaScript. It performs basic arithmetic operations and includes additional features like factorial calculation and history tracking. The project demonstrates core programming concepts in a practical way.
+
+---
+
+## Features
+
+* Addition, subtraction, multiplication, division
+* Power calculation
+* Factorial (using recursion)
+* History of calculations
+* Sum of results (using `reduce()`)
+
+---
+
+## Concepts Used
+
+* ES6: arrow functions, template literals, `let` and `const`
+* Functional programming: pure functions, higher-order functions
+* Recursion: factorial function
+* OOP: Calculator class
+* Array methods: `map()`, `reduce()`, `push()`
+* IIFE for initialization
+
+---
+
+## Project Structure
+
+```
+SmartCalculator/
+  index.html
+  style.css
+  script.js
+  README.md
+```
+
+---
+
+## How to Run
+
+1. Open the project folder
+2. Open `index.html` in a browser or use Live Server
+
+---
+
+## How It Works
+
+User inputs values, selects an operation, and clicks calculate.
+JavaScript processes the input, displays the result, and updates history without reloading the page.
+
+---
+
+## Limitations
+
+* No data persistence
+* Basic UI
+
+---
+
+## Future Improvements
+
+* Add localStorage
+* Improve UI
+* Add more operations
+
+---

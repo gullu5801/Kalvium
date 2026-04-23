@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smart Utility Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Smart Utility Manager</h1>
+
+<div class="container">
+  <input type="text" id="name" placeholder="Enter Item Name">
+  <input type="number" id="amount" placeholder="Enter Amount">
+  <button onclick="addItem()">Add Item</button>
+</div>
+
+<div class="buttons">
+  <button onclick="filterHigh()">Filter > 100</button>
+  <button onclick="calculateTotal()">Calculate Total</button>
+</div>
+
+<ul id="list"></ul>
+
+<h2 id="result"></h2>
+
+<script src="script.js"></script>
+</body>
+</html>

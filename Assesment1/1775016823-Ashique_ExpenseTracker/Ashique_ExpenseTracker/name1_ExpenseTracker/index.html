@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">💰 Expense Tracker</h1>
+                <p class="subtitle">Manage your spending with ease</p>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Layout -->
+        <div class="dashboard">
+            <!-- Left Column: Add Expense Form -->
+            <div class="column column-left">
+                <section class="card form-card">
+                    <h2 class="card-title">Add Expense</h2>
+                    
+                    <form id="expenseForm" class="form">
+                        <div class="form-group">
+                            <label for="amount" class="form-label">Amount</label>
+                            <input 
+                                type="number" 
+                                id="amount" 
+                                class="form-input" 
+                                placeholder="0.00" 
+                                min="0" 
+                                step="0.01" 
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="category" class="form-label">Category</label>
+                            <select id="category" class="form-input form-select" required>
+                                <option value="">Select category</option>
+                                <option value="Food">🍔 Food</option>
+                                <option value="Transport">🚗 Transport</option>
+                                <option value="Entertainment">🎬 Entertainment</option>
+                                <option value="Utilities">💡 Utilities</option>
+                                <option value="Health">🏥 Health</option>
+                                <option value="Shopping">🛍️ Shopping</option>
+                                <option value="Other">📦 Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description" class="form-label">Description</label>
+                            <input 
+                                type="text" 
+                                id="description" 
+                                class="form-input" 
+                                placeholder="What did you spend on?"
+                            >
+                        </div>
+
+                        <button type="submit" id="addBtn" class="btn btn-primary">
+                            <span>Add Expense</span>
+                        </button>
+                    </form>
+                </section>
+            </div>
+
+            <!-- Right Column: Summary + Expenses List -->
+            <div class="column column-right">
+                <!-- Summary Card -->
+                <section class="card summary-card">
+                    <div class="summary-header">
+                        <span class="summary-label">Total Expenses</span>
+                        <span class="summary-icon">📊</span>
+                    </div>
+                    <div class="summary-amount" id="totalAmount">$0.00</div>
+                    <p class="summary-meta">Track all your spending here</p>
+                </section>
+
+                <!-- Statistics Card -->
+                <section class="card stats-card">
+                    <h3 class="card-title card-title-small">📊 Category Breakdown</h3>
+                    <div id="categoryStats" class="category-stats">
+                        <p class="stats-empty">Add expenses to see statistics</p>
+                    </div>
+                </section>
+
+                <!-- Category Filter Card -->
+                <section class="card filter-card">
+                    <h3 class="card-title card-title-small">Filter by Category</h3>
+                    <select id="categoryFilter" class="form-input form-select filter-select">
+                        <option value="">📋 Show All</option>
+                        <option value="Food">🍔 Food</option>
+                        <option value="Transport">🚗 Transport</option>
+                        <option value="Entertainment">🎬 Entertainment</option>
+                        <option value="Utilities">💡 Utilities</option>
+                        <option value="Health">🏥 Health</option>
+                        <option value="Shopping">🛍️ Shopping</option>
+                        <option value="Other">📦 Other</option>
+                    </select>
+                </section>
+
+                <!-- Expenses List Card -->
+                <section class="card list-card">
+                    <h2 class="card-title">Recent Expenses</h2>
+                    <div id="expensesList" class="expenses-list">
+                        <p class="empty-state">
+                            <span class="empty-icon">🧾</span>
+                            <span>No expenses yet</span>
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

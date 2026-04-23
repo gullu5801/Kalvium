@@ -1,0 +1,25 @@
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;
+}
+
+/* Container centered properly */
+.container {
+  width: 100%;
+  max-width: 420px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Card stays centered inside */
+.card {
+  width: 100%;
+}

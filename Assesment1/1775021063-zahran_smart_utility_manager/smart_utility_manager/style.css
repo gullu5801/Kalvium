@@ -1,0 +1,71 @@
+body {
+font-family: Arial, sans-serif;
+background: #f5f6fa;
+display: flex;
+justify-content: center;
+}
+
+.container {
+width: 500px;
+background: white;
+padding: 20px;
+margin-top: 40px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+text-align: center;
+}
+
+form {
+display: flex;
+gap: 10px;
+margin-bottom: 20px;
+}
+
+input, select, button {
+padding: 10px;
+border-radius: 5px;
+border: 1px solid #ccc;
+}
+
+button {
+background: #3498db;
+color: white;
+cursor: pointer;
+border: none;
+}
+
+button:hover {
+background: #2980b9;
+}
+
+.filters {
+margin-bottom: 15px;
+}
+
+.filters button {
+margin-right: 5px;
+}
+
+li {
+display: flex;
+justify-content: space-between;
+padding: 10px;
+background: #ecf0f1;
+margin-bottom: 5px;
+border-radius: 5px;
+}
+
+.delete {
+background: red;
+color: white;
+border: none;
+padding: 5px 10px;
+cursor: pointer;
+}
+
+.summary {
+margin-top: 20px;
+}

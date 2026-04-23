@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+}
+
+.container {
+  width: 350px;
+  margin: 30px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.balance {
+  margin: 15px 0;
+}
+
+form input, form select, form button {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+}
+
+button {
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  margin: 5px 0;
+  background: #eee;
+  display: flex;
+  justify-content: space-between;
+}
+
+li.income {
+  border-left: 5px solid green;
+}
+
+li.expense {
+  border-left: 5px solid red;
+}

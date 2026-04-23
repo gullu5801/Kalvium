@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Utility Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Smart Utility Manager</h1>
+
+    <input type="text" id="utilityName" placeholder="Enter utility name">
+
+    <input type="number" id="utilityAmount" placeholder="Enter amount">
+
+    <select id="utilityCategory">
+        <option>Electricity</option>
+        <option>Water</option>
+        <option>Internet</option>
+        <option>Gas</option>
+        <option>Other</option>
+    </select>
+
+    <button id="addBtn">Add Utility</button>
+    <button id="totalBtn">Calculate Total</button>
+    <button id="filterBtn">Filter > 500</button>
+    <button id="resetBtn">Reset</button>
+
+    <h3>Total Amount: ₹<span id="total">0</span></h3>
+
+    <ul id="utilityList"></ul>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

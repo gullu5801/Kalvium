@@ -1,0 +1,23 @@
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #f4f4f4;
+}
+
+form {
+    margin: 20px;
+}
+
+input, select, button {
+    padding: 10px;
+    margin: 5px;
+}
+
+ul {
+    background: white;
+    margin: 0;
+    padding: 10px;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A premium smart utility manager to track your expenses.">
+  <title>Smart Utility Manager - Expense Tracker</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Animated Elements -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="app-container">
+    <header>
+      <h1>Smart Utility Manager</h1>
+      <p>Track your daily expenses effortlessly</p>
+    </header>
+
+    <main>
+      <!-- Input Section -->
+      <section class="glass-panel form-section">
+        <h2>Add New Expense</h2>
+        <form id="expense-form">
+          <div class="input-group">
+            <input type="text" id="expense-title" placeholder="Expense Title" required autocomplete="off">
+          </div>
+          <div class="input-group row">
+            <input type="number" id="expense-amount" placeholder="Amount (₹)" required min="1">
+            <select id="expense-category" required>
+              <option value="" disabled selected>Category...</option>
+              <option value="Food">Food & Dining</option>
+              <option value="Transport">Transport</option>
+              <option value="Utilities">Utilities</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <button type="submit" id="submit-btn" class="btn primary-btn">
+            <span>Add Expense</span>
+            <div class="btn-glow"></div>
+          </button>
+        </form>
+      </section>
+
+      <!-- Dashboard Panel -->
+      <section class="glass-panel dashboard-section">
+        <div class="summary-cards">
+          <div class="card total-card">
+            <h3>Total Expenses</h3>
+            <p id="total-display">₹0.00</p>
+          </div>
+          <div class="card max-card">
+            <h3>Max Expense</h3>
+            <p id="max-display">₹0.00</p>
+            <small>Calculated via Recursion</small>
+          </div>
+        </div>
+      </section>
+
+      <!-- Manage Section -->
+      <section class="glass-panel list-section">
+        <div class="list-header">
+          <h2>Your Expenses</h2>
+          <div class="filter-group">
+            <select id="filter-category">
+              <option value="All">All Categories</option>
+              <option value="Food">Food & Dining</option>
+              <option value="Transport">Transport</option>
+              <option value="Utilities">Utilities</option>
+              <option value="Entertainment">Entertainment</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        
+        <ul id="expense-list" class="expense-list">
+          <!-- Expenses rendered dynamically via JS -->
+          <li class="empty-state">No expenses added yet.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
